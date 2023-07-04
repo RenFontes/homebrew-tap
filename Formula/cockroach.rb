@@ -145,4 +145,3 @@ class Cockroach < Formula
     end
   end
 end
-

@@ -29,7 +29,9 @@ class Cockroach < Formula
 
   def install
     bin.install "cockroach"
-    on_intel do
+    
+    # For MacOS
+    if OS.mac?
       lib.mkpath
       mkdir "#{lib}/cockroach"
       lib.install "lib/libgeos.dylib" => "cockroach/libgeos.dylib"
@@ -46,6 +48,15 @@ class Cockroach < Formula
         "@rpath/libgeos.3.8.1.dylib", "#{lib}/cockroach/libgeos.dylib",
         "#{lib}/cockroach/libgeos_c.dylib"
     end
+
+    # Common operations for all OSes
+    system "#{bin}/cockroach", "gen", "man", "--path=#{man1}"
+    bash_completion.mkpath
+    system "#{bin}/cockroach", "gen", "autocomplete", "bash", "--out=#{bash_completion}/cockroach"
+    zsh_completion.mkpath
+    system "#{bin}/cockroach", "gen", "autocomplete", "zsh", "--out=#{zsh_completion}/_cockroach"
+  end
+
 
     system "#{bin}/cockroach", "gen", "man", "--path=#{man1}"
 

@@ -17,7 +17,7 @@ class Cockroach < Formula
   end
 
   on_linux do
-    on_x86_64 do
+    on_intel do
       url "https://binaries.cockroachdb.com/cockroach-v23.1.4.linux-amd64.tgz"
       sha256 "3125f85389c81bd4d443cb6e826ccbdd8eb4a49ef2d397f95bdb2e3bd6e79acb"
     end

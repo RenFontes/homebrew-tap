@@ -16,6 +16,17 @@ class Cockroach < Formula
     end
   end
 
+  on_linux do
+    on_x86_64 do
+      url "https://binaries.cockroachdb.com/cockroach-v23.1.4.linux-amd64.tgz"
+      sha256 "3125f85389c81bd4d443cb6e826ccbdd8eb4a49ef2d397f95bdb2e3bd6e79acb"
+    end
+    on_arm do
+      url "https://binaries.cockroachdb.com/cockroach-v23.1.4.linux-arm64.tgz"
+      sha256 "3c720836a693deb2955eeee39ca8433f4f165eec5660c82456b1f0046ad78e6d"
+    end
+  end  
+
   def install
     bin.install "cockroach"
     on_intel do

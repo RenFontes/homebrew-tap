@@ -17,6 +17,13 @@ class Ccloud < Formula
     end
   end
 
+  on_linux do
+    on_x86_64 do
+      url "https://binaries.cockroachdb.com/ccloud/ccloud_linux-amd64_0.5.11.tar.gz"
+      sha256 "d8ad32407b8893c578e6a5b7f2546b1f553a535a2c574892084e5dd576ea84f8"
+    end
+  end
+
   def install
     bin.install "ccloud"
   end

@@ -16,6 +16,17 @@ class CockroachSql < Formula
     end
   end
 
+  on_linux do
+    on_x86_64 do
+      url "https://binaries.cockroachdb.com/cockroach-sql-v23.1.4.linux-amd64.tgz"
+      sha256 "b05c3630ab77cfcdbd6a6dc09e96bbae2fc5004ba77797590b21d1c53e61caee"
+    end
+    on_arm do
+      url "https://binaries.cockroachdb.com/cockroach-sql-v23.1.4.linux-arm64.tgz"
+      sha256 "5691e74bfb0351653d8d11b26774391133849f04ba1347ea23bb26f7dda525f8"
+    end
+  end  
+
   def install
     bin.install "cockroach-sql"
   end
